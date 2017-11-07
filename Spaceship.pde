@@ -9,8 +9,8 @@ class Spaceship extends Floater
     myColor = 255;   
     myCenterX = 250;
     myCenterY = 250; //holds center coordinates   
-    myDirectionX = 2.5;
-    myDirectionY = 2.5; //holds x and y coordinates of the vector for direction of travel   
+    myDirectionX = 0;
+    myDirectionY = 0; //holds x and y coordinates of the vector for direction of travel   
     myPointDirection = 270; //holds current direction the ship is pointing in degrees
   }
 

@@ -30,4 +30,11 @@ public void keyPressed() {
   if(key == 's') {
     ship.accelerate(-0.5);
   }
+  if(key == 'h') {
+    ship.myCenterX = (int)(Math.random()*500);
+    ship.myCenterY = (int)(Math.random()*500);
+    ship.myPointDirection = (int)(Math.random()*360);
+    ship.myDirectionX = 0;
+    ship.myDirectionY = 0;
+  }
 }
