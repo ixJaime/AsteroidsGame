@@ -1,10 +1,15 @@
 Spaceship ship;
+Asteroid [] rocks;
 Stars [] particles;
 
 public void setup() {
   size(500, 500);
 ship = new Spaceship();
+rocks = new Asteroid[20];
 particles = new Stars[100];
+for(int i =0; i<rocks.length; i++) {
+  rocks[i] = new Asteroid();
+}
   for(int i=0; i<particles.length; i++){
     particles[i] = new Stars();
   }
@@ -14,6 +19,11 @@ public void draw() {
   for(int i=0; i<particles.length; i++){
     particles[i].show();
   }
+    for(int i=0; i<rocks.length; i++) {
+      rocks[i].show();
+      rocks[i].move();
+      rocks[i].accelerate(.05);
+    }
   ship.show();
   ship.move();
 }
@@ -31,10 +41,10 @@ public void keyPressed() {
     ship.accelerate(-0.5);
   }
   if(key == 'h') {
-    ship.myCenterX = (int)(Math.random()*500);
-    ship.myCenterY = (int)(Math.random()*500);
-    ship.myPointDirection = (int)(Math.random()*360);
-    ship.myDirectionX = 0;
-    ship.myDirectionY = 0;
+    ship.setX((int)(Math.random()*500));
+    ship.setY((int)(Math.random()*500));
+    ship.setPointDirection((int)(Math.random()*360));
+    ship.setDirectionX(0);
+    ship.setDirectionY(0);
   }
 }
