@@ -1,14 +1,14 @@
 Spaceship ship;
-Asteroid [] rocks;
+ArrayList <Asteroid> rocks;
 Stars [] particles;
 
 public void setup() {
   size(500, 500);
 ship = new Spaceship();
-rocks = new Asteroid[20];
+rocks = new ArrayList <Asteroid>();
 particles = new Stars[100];
-for(int i =0; i<rocks.length; i++) {
-  rocks[i] = new Asteroid();
+for(int i = 0; i < 10; i++) {
+  rocks.add(i, new Asteroid());
 }
   for(int i=0; i<particles.length; i++){
     particles[i] = new Stars();
@@ -19,11 +19,14 @@ public void draw() {
   for(int i=0; i<particles.length; i++){
     particles[i].show();
   }
-    for(int i=0; i<rocks.length; i++) {
-      rocks[i].show();
-      rocks[i].move();
-      rocks[i].accelerate(.05);
-    }
+    for(int i=0; i<rocks.size(); i++) {
+     rocks.get(i).show();
+     rocks.get(i).move();
+     rocks.get(i).accelerate(0.01);
+     if(rocks.get(i).collide(ship.getX(), ship.getY()) == true) {
+       rocks.remove(i);
+     }
+   }
   ship.show();
   ship.move();
 }

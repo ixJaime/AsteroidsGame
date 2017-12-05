@@ -1,9 +1,9 @@
 class Asteroid extends Floater {
   private int myRotSpeed;
   Asteroid () {
-    corners = 7;
-    int[] xS = {-3, -6, -6, 0, 6, 6, 3};   
-    int[] yS = {5, 3, -2, -5, -2, 3, 5}; 
+    corners = 6;
+    int[] xS = {-11, 7, 13, 6, -11, -5};   
+    int[] yS = {-8, -8, 0, 10, 8, 0}; 
     xCorners = xS;
     yCorners = yS;
     myColor = 255;   
@@ -17,6 +17,14 @@ class Asteroid extends Floater {
     public void move() {
       turn(myRotSpeed);
       super.move();
+    }
+      public boolean collide (int x, int y) {
+        if(dist((int)myCenterX, (int)myCenterY, x, y) <=20) {
+        return true;
+        }
+        else {
+          return false;
+      }
 }
    public void setX(int x) {myCenterX = x;}  
   public int getX(){return (int)myCenterX;}  
