@@ -11,7 +11,7 @@ class Spaceship extends Floater
     myCenterY = 250; //holds center coordinates   
     myDirectionX = 0;
     myDirectionY = 0; //holds x and y coordinates of the vector for direction of travel   
-    myPointDirection = 270; //holds current direction the ship is pointing in degrees
+    myPointDirection = 0; //holds current direction the ship is pointing in degrees
   }
 
   public void setX(int x) {myCenterX = x;}  

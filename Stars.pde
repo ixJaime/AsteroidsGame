@@ -7,7 +7,7 @@ class Stars //note that this class does NOT extend Fler
   }
   
   public void show() {
-    fill(255);
+    fill(80);
     ellipse(x, y, 2.75, 2.75);
 }
 }

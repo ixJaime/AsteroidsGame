@@ -6,22 +6,22 @@ class Asteroid extends Floater {
     int[] yS = {-8, -8, 0, 10, 8, 0}; 
     xCorners = xS;
     yCorners = yS;
-    myColor = 255;   
+    myColor = 50;   
     myCenterX = Math.random()*500;
     myCenterY = Math.random()*500; //holds center coordinates   
-    myDirectionX = 0;
-    myDirectionY = 0; //holds x and y coordinates of the vector for direction of travel   
-    myPointDirection = 270; //holds current direction the ship is pointing in degrees
+    myDirectionX = Math.random()*5-2;
+    myDirectionY = Math.random()*5-2; //holds x and y coordinates of the vector for direction of travel   
+    myPointDirection = (int)(Math.random()*360); //holds current direction the ship is pointing in degrees
     myRotSpeed = (int)(Math.random()*11)-5;
   }
     public void move() {
-      turn(myRotSpeed);
+      super.turn(myRotSpeed);
       super.move();
     }
       public boolean collide (int x, int y) {
-        if(dist((int)myCenterX, (int)myCenterY, x, y) <=20) {
+        if(dist((int)myCenterX, (int)myCenterY, x, y) <20)
         return true;
-        }
+        
         else {
           return false;
       }

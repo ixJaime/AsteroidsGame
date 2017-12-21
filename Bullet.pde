@@ -1,14 +1,40 @@
-class Bullet extends Floater {
-  Bullet(Spaceship, ship) {
-    myCenterX = 250;
-    myCenterY = 250;
-    myPointDirection = 270;
+public class Bullet extends Floater {
+  public Bullet(Spaceship theShip) {
+    myCenterX = theShip.getX();
+    myCenterY = theShip.getY();
+    myPointDirection = ship.getPointDirection();
     double dRadians = myPointDirection*(Math.PI/180);
-    myDirectionX = 5 * Math.cos(dRadians);
-    myDirectionY = 5 * Math.sin(dRadians);
+    myDirectionX = 5 * Math.cos(dRadians) + theShip.getDirectionX();
+    myDirectionY = 5 * Math.sin(dRadians) + theShip.getDirectionY();
   }
-}
   
   public void show() {
-    ellipse(
+    fill(255);
+    ellipse((int)myCenterX, (int)myCenterY, 10, 10);
 }
+
+public void move() {
+  myCenterX += myDirectionX;
+  myCenterY += myDirectionY;
+}
+
+public boolean collide (int x, int y) {
+        if(dist((int)myCenterX, (int)myCenterY, x, y) <=20) {
+        return true;
+        }
+        else {
+          return false;
+      }
+}
+
+public void setX(int x) {myCenterX = x;}  
+  public int getX(){return (int)myCenterX;}  
+  public void setY(int y) {myCenterY = y;}  
+  public int getY(){return (int)myCenterY;}   
+  public void setDirectionX(double x){myDirectionX = x;}
+  public double getDirectionX(){return myDirectionX;}   
+  public void setDirectionY(double y){myDirectionY = y;}
+  public double getDirectionY(){return myDirectionY;} 
+  public void setPointDirection(int degrees){myPointDirection = degrees;}
+  public double getPointDirection(){return myPointDirection;}
+  }
